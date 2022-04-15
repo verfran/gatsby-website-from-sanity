@@ -1,16 +1,44 @@
 import * as React from "react"
 import { graphql } from "gatsby"
 
-import Layout from "../components/layout"
-import Seo from "../components/seo"
+import Page from "../components/page"
 
 export default function IndexPage({ data }) {
 
+  if (null == data.sanitySiteSettings.homepage) {
+    return (<div> Home page not defined. Set the home page in the CMS Site settings</div>)
+  }
+
   return (
-    <Layout>
-      <Seo title="Home" />
-      <div>Index page</div>
-    </Layout>
+    <Page pagedata={data.sanitySiteSettings.homepage} />
   )
 }
 
+export const query = graphql`
+{
+  sanitySiteSettings {
+    homepage {
+      title
+      image {
+        asset {
+          gatsbyImageData(width: 1700, height:650, placeholder: BLURRED)
+        }
+      }
+      sections {
+          title
+          displaytitle
+          text
+          cards {
+            image {
+              asset {
+                gatsbyImageData(width: 500, placeholder: BLURRED)
+              }
+            }
+            title
+            text
+          }
+        }
+    }
+  }
+}
+`
