@@ -5,12 +5,14 @@ const Card = (props) => {
 
     console.log(props)
 
+    const imgAlt = props.data.title ? props.data.title : "Image title missing"
+
     return (
-        <div className="bg-white rounded-lg border shadow-md max-w-xs overflow-hidden m-3">
+        <div className="bg-white rounded-xl border shadow-md max-w-xs overflow-hidden m-3">
             {props.data.image && (
                 <GatsbyImage
                     image={getImage(props.data.image.asset.gatsbyImageData)}
-                    alt={props.data.title}
+                    alt={imgAlt}
                 />
             )}
             <div className="p-3">
