@@ -12,7 +12,10 @@ const Section = (props) => {
                     {props.data.title}
                 </h1>
             )}
-            {props.data.cards.map((card, i) => <Card data={card} key={i} />)}
+            <div className="flex justify-center flex-wrap">
+                {props.data.cards.map((card, i) => <Card data={card} key={i} />
+                )}
+            </div>
         </div>
     )
 }
