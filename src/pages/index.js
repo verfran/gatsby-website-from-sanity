@@ -21,7 +21,7 @@ export const query = graphql`
       title
       image {
         asset {
-          gatsbyImageData(width: 1700, height:650, placeholder: BLURRED)
+          gatsbyImageData(width: 1700, height:650, placeholder: BLURRED, layout:FULL_WIDTH)
         }
       }
       sections {
